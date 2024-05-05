@@ -6,8 +6,15 @@ on:
         description: Name of the deployable artifact
         required: true
         type: string
+    outputs:
+      result:
+        description: The result of the deploy operation
+        value: ${{jobs.deploy.outputs.deploy-result}}
+
 jobs:
   deploy:
+    outputs:
+      deploy-result: ${{steps.resultid.outputs.step-result}}
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
@@ -16,3 +23,6 @@ jobs:
           name: ${{inputs.artifact}}
       - name: Output information
         run: echo "Deploying..."
+      - name: Set result
+        id: resultid
+        run: echo "step-result=Booya!" >> $GITHUB_OUTPUT
