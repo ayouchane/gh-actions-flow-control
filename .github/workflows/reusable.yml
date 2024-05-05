@@ -3,7 +3,7 @@ on:
   workflow_call:
     inputs:
       artifact:
-        description: Path to the deployable artifact
+        description: Name of the deployable artifact
         required: true
         type: string
 jobs:
