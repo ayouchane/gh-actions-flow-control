@@ -8,11 +8,11 @@ jobs:
         operating-system: [ubuntu-latest, windows-latest]
         include:
           - node-version: 20
-          - operating-system: windows-latest
-          - npm: 10
+            operating-system: windows-latest
+            npm: 10
         exclude:
           - node-version: 14
-          - operating-system: windows-latest
+            operating-system: windows-latest
     runs-on: ${{matrix.operating-system}}
     steps:
       - name: Get code
