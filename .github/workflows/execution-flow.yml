@@ -83,4 +83,4 @@ jobs:
       - name: Log information
         run: |
           echo "Something went wrong"
-          echo "${{github}}"
+          echo "${{toJson(github)}}"
